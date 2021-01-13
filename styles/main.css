@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700;800&display=swap");
+* {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+}
+
+html {
+  background-color: white;
+}
+
+.nav-container {
+  background-color: white;
+  height: 100px;
+  padding-right: 64px;
+  padding-left: 64px;
+}
+
+.board-field {
+  margin: 0 64px;
+}
+
+@media screen and (max-width: 480px) {
+  .nav-container {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .board-field {
+    margin: 0 32px;
+  }
+}
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-separator {
+  display: none;
+}
+
+.logo-greeting {
+  display: none;
+}
+
+@media screen and (min-width: 900px) {
+  .logo-greeting {
+    margin-left: 24px;
+    margin-top: 8px;
+    font-weight: 600;
+    display: block;
+  }
+
+  .logo-separator {
+    margin-right: 4px;
+    margin-left: 16px;
+    border-left: thin solid black;
+    align-self: stretch;
+    display: block;
+  }
+}
+.btn-nav {
+  display: block;
+}
+
+.btn-drop {
+  display: none;
+}
+
+@media screen and (max-width: 630px) {
+  .btn-nav {
+    display: none;
+  }
+
+  .btn-drop {
+    display: block;
+  }
+}
+.btn-landing-nav {
+  display: block;
+}
+
+@media screen and (max-width: 540px) {
+  .btn-landing-nav {
+    display: none;
+  }
+}
+.btn-landing-login-nav {
+  display: block;
+}
+
+@media screen and (max-width: 280px) {
+  .btn-landing-login-nav {
+    display: none;
+  }
+}
+.btn-success {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.85em;
+}
+
+.btn-primary {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.85em;
+}
+
+.user-prof-pic {
+  width: 36px;
+  height: 36px;
+  margin-right: 0px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+.user-prof-pic:hover {
+  border-color: #2D7BF6;
+}
+
+.user-info-name {
+  font-size: 1em;
+  color: #2D7BF6;
+  font-weight: 600;
+}
+
+.user-info-mail {
+  font-size: 0.7rem;
+  margin-top: -8px;
+}
+
+.dropdown-menu {
+  border-radius: 4px;
+}
+
+.greeting-name {
+  font-family: Playfair Display, serif;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.greeting-project {
+  font-weight: 400;
+  margin-left: 10px;
+  margin-bottom: 16px;
+}
+
+.row.board {
+  flex-wrap: nowrap;
+  overflow: auto;
+  height: 65vh;
+}
+
+.col {
+  flex-wrap: nowrap;
+  overflow: auto;
+  height: 50vh;
+}
+
+.card-parent {
+  overflow: auto;
+  height: 64vh;
+}
+
+.card-content {
+  margin: 8px;
+}
+
+.back-log-style {
+  border-radius: 16px;
+  margin-top: 20px;
+  background-color: #8e8e93;
+  box-shadow: 0 0 8px 0 rgba(142, 142, 147, 0.2), 0 0 8px 0 rgba(142, 142, 147, 0.808);
+}
+
+.small {
+  font-size: 12px;
+}
+
+.date-task {
+  margin-top: -16px;
+}
+
+.landing-body {
+  margin-top: 48px;
+  height: auto;
+}
+
+.landing-illust {
+  width: 45vw;
+}
+
+@media screen and (max-width: 767px) {
+  .landing-body {
+    margin-top: 24px;
+    height: 100%;
+  }
+
+  .landing-typo {
+    margin-right: 9.4vw;
+  }
+
+  .landing-illust {
+    margin-top: 16px;
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 320px) {
+  .landing-illust {
+    width: 60vw;
+  }
+}
+.landing-typo-title {
+  font-family: Playfair Display, serif;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=main.css.map */

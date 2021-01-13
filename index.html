@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--===============================================================================================-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="./styles/main.css">
+  <!--===============================================================================================-->
+
+  <title>Kanboard</title>
+</head>
+
+<body>
+
+  <!-- landing-page -->
+  <div id="landing-page">
+
+    <!-- landing-navbar -->
+    <nav class="navbar sticky-top navbar-light nav-container">
+      <div class="container-fluid">
+
+        <!-- logo-section -->
+        <div class="logo-section">
+
+          <!-- logo-image -->
+          <a class="navbar-brand" href="#">
+            <img style="margin-top: 4px" src="./img/img_logoB.svg" alt="" height="24" class="d-inline-block align-top">
+          </a>
+          <!-- logo-image// -->
+
+        </div>
+        <!-- logo-section// -->
+
+        <!-- landing-btn-section -->
+        <div id="landing-btn-section" class="btn-group">
+
+          <button id="register-nav" class="btn btn-outline-dark btn-sm btn-landing-nav"
+            style="color:black; margin-right: 18px; border-radius: 4px; text-decoration: none; font-weight: 400;">Register</button>
+          <button id="login-nav" class="btn btn-dark btn-sm btn-landing-login-nav"
+            style="border-radius: 4px;">Login</button>
+
+        </div>
+        <!-- landing-btn-section// -->
+
+      </div>
+    </nav>
+    <!-- landing-navbar// -->
+
+    <!-- landing-body -->
+    <div id="landing-body" class="landing-body">
+
+      <div class="container-fluid">
+        <div class="row landing">
+
+          <!-- landing-typo-section -->
+          <div class="col-lg-5 col-md-6 align-self-center">
+            <div class="landing-typo" style="margin-left: 9.4vw">
+              <h1 class="landing-typo-title">Set the same goal together!</h1>
+
+              <p style="margin-top: 16px">Share your ideas for project, let your team know what you are doing on your
+                project. Collaborating with your team never been this easier.</p>
+
+              <button class="btn btn-outline-dark">Register</button>
+            </div>
+          </div>
+          <!-- landing-typo-section// -->
+
+          <!-- landing-illust-section -->
+          <div class="col-lg-7 col-md-6 text-center">
+            <img src="./img/img_landingIllust.svg" alt="" class="d-inline-block align-top landing-illust">
+          </div>
+          <!-- landing-illust-section// -->
+
+        </div>
+      </div>
+
+    </div>
+    <!-- landing-body// -->
+
+  </div>
+  <!-- landing-page// -->
+
+  <!-- dashboard-page -->
+  <div id="dashboard-page" hidden>
+
+    <!-- navbar -->
+    <nav class="navbar sticky-top navbar-light nav-container">
+      <div class="container-fluid">
+
+        <!-- logo-section -->
+        <div class="logo-section">
+
+          <!-- logo-image -->
+          <a id="logo-image" class="navbar-brand" href="#">
+            <img src="./img/img_logoB.svg" alt="" height="32" class="d-inline-block align-top">
+          </a>
+          <!-- logo-image// -->
+
+          <!-- logo-separator -->
+          <div class="logo-separator"></div>
+          <!-- logo-separator// -->
+
+          <!-- logo-greeting -->
+          <div id="logo-greeting">
+            <h5 class="logo-greeting">Good Afternoon</h5>
+          </div>
+          <!-- logo-greeting// -->
+
+        </div>
+        <!-- logo-section// -->
+
+        <!-- user-section -->
+        <div id="user-section" class="btn-group">
+
+          <button id="create-task-btn-nav" class="btn btn-success btn-sm btn-nav"
+            style="margin-right: 18px; border-radius: 4px;">Project</button>
+          <button id="project-btn-nav" class="btn btn-primary btn-sm btn-nav"
+            style="margin-right: 36px; border-radius: 4px;">Create task</button>
+
+          <!-- user-image -->
+          <a id="user-image" href="" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img
+              src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
+              alt="" class="user-prof-pic">
+          </a>
+          <!-- user-image// -->
+
+          <!-- user-info-section -->
+          <div class="dropdown-menu dropdown-menu-end">
+
+            <!-- user-info -->
+            <div id="user-info">
+              <h6 class="dropdown-header user-info-name">John Doe</h6>
+              <h6 class="dropdown-header user-info-mail">johndoe@mail.com</h6>
+            </div>
+            <!-- user-info// -->
+
+            <div class="dropdown-divider"></div>
+
+            <a id="create-task-drop" class="dropdown-item btn-drop" href="">Create task</a>
+            <a id="project-drop" class="dropdown-item btn-drop" href="">Project</a>
+
+            <div class="dropdown-divider btn-drop"></div>
+
+            <a id="logout-btn" class="dropdown-item" href="">Logout</a>
+          </div>
+          <!-- user-info-section// -->
+
+        </div>
+        <!-- user-section// -->
+
+      </div>
+    </nav>
+    <!-- navbar// -->
+
+    <!-- main-page -->
+    <div id="main-page">
+
+      <!-- board-field -->
+      <div id="board-field" class="board-field">
+
+        <h3 class="greeting-name">Hi #FIRSTNAME</h3>
+        <p class="greeting-project text-muted">#PROJECTNAME</p>
+
+        <div class="container-fluid">
+          <div class="row board">
+
+            <!-- back-log -->
+            <div class="col-sm-6 col-md-6 col-lg-3">
+
+              <div class="card border-secondary mb-3 card-parent">
+                <div class="card-header text-uppercase" style="font-weight: 600;">Backlog</div>
+
+                <div class="card text-white bg-dark mb-3 card-content">
+                  <div class="card-header"
+                    style="background-color: transparent; border: 0; font-weight: 600; padding:8px 16px 2px 16px">#Title
+                  </div>
+                  <div class="card-body" style="padding: 2px 16px 8px 16px;">
+                    <p class="card-text">#description</p>
+
+                    <div id="task-info">
+                      <p class="card-text fst-italic fw-bold small" style="margin-top: -6px">John Doe</p>
+                      <p class="card-text fst-italic date-task small">2021 01 30</p>
+                    </div>
+
+                    <div id="task-btn-action">
+                      <i class="fas fa-pen-square"></i>
+                      <i class="fas fa-trash" style="margin-left: 16px;"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- copy -->
+                <div class="card text-white bg-dark mb-3 card-content">
+                  <div class="card-header"
+                    style="background-color: transparent; border: 0; font-weight: 600; padding:8px 16px 2px 16px">#Title
+                  </div>
+                  <div class="card-body" style="padding: 2px 16px 8px 16px;">
+                    <p class="card-text">#description</p>
+
+                    <div>
+                      <p class="card-text fst-italic fw-bold small" style="margin-top: -6px">John Doe</p>
+                      <p class="card-text fst-italic date-task small">2021 01 30</p>
+                    </div>
+
+                    <div>
+                      <i class="fas fa-pen-square"></i>
+                      <i class="fas fa-trash" style="margin-left: 16px;"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card text-white bg-dark mb-3 card-content">
+                  <div class="card-header"
+                    style="background-color: transparent; border: 0; font-weight: 600; padding:8px 16px 2px 16px">#Title
+                  </div>
+                  <div class="card-body" style="padding: 2px 16px 8px 16px;">
+                    <p class="card-text">#description</p>
+
+                    <div>
+                      <p class="card-text fst-italic fw-bold small" style="margin-top: -6px">John Doe</p>
+                      <p class="card-text fst-italic date-task small">2021 01 30</p>
+                    </div>
+
+                    <div>
+                      <i class="fas fa-pen-square"></i>
+                      <i class="fas fa-trash" style="margin-left: 16px;"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card text-white bg-dark mb-3 card-content">
+                  <div class="card-header"
+                    style="background-color: transparent; border: 0; font-weight: 600; padding:8px 16px 2px 16px">#Title
+                  </div>
+                  <div class="card-body" style="padding: 2px 16px 8px 16px;">
+                    <p class="card-text">#description</p>
+
+                    <div>
+                      <p class="card-text fst-italic fw-bold small" style="margin-top: -6px">John Doe</p>
+                      <p class="card-text fst-italic date-task small">2021 01 30</p>
+                    </div>
+
+                    <div>
+                      <i class="fas fa-pen-square"></i>
+                      <i class="fas fa-trash" style="margin-left: 16px;"></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- copy// -->
+
+              </div>
+            </div>
+            <!-- back-log// -->
+
+            <!-- todo -->
+            <div class="col-sm-6 col-md-6 col-lg-3">
+
+              <div class="card border-primary mb-3 card-parent">
+                <div class="card-header text-uppercase" style="font-weight: 600;">Todo</div>
+
+                <div class="card text-white bg-primary mb-3 card-content">
+
+                  <div class="card-header"
+                    style="background-color: transparent; border: 0; font-weight: 600; padding:8px 16px 2px 16px">#Title
+                  </div>
+
+                  <div class="card-body" style="padding: 2px 16px 8px 16px;">
+                    <p class="card-text">#description</p>
+
+                    <div>
+                      <p class="card-text fst-italic fw-bold small" style="margin-top: -6px">John Doe</p>
+                      <p class="card-text fst-italic date-task small">2021 01 30</p>
+                    </div>
+
+                    <div>
+                      <i class="fas fa-pen-square"></i>
+                      <i class="fas fa-trash" style="margin-left: 16px;"></i>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+            <!-- todo// -->
+
+            <!-- doing -->
+            <div class="col-sm-6 col-md-6 col-lg-3">
+
+              <div class="card border-warning mb-3 card-parent">
+                <div class="card-header text-uppercase" style="font-weight: 600;">Doing</div>
+
+                <div class="card text-white bg-warning mb-3 card-content">
+
+                  <div class="card-header"
+                    style="background-color: transparent; border: 0; font-weight: 600; padding:8px 16px 2px 16px">#Title
+                  </div>
+
+                  <div class="card-body" style="padding: 2px 16px 8px 16px;">
+                    <p class="card-text">#description</p>
+
+                    <div>
+                      <p class="card-text fst-italic fw-bold small" style="margin-top: -6px">John Doe</p>
+                      <p class="card-text fst-italic date-task small">2021 01 30</p>
+                    </div>
+
+                    <div>
+                      <i class="fas fa-pen-square"></i>
+                      <i class="fas fa-trash" style="margin-left: 16px;"></i>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+            <!-- doing// -->
+
+            <!-- done -->
+            <div class="col-sm-6 col-md-6 col-lg-3">
+
+              <div class="card border-success mb-3 card-parent">
+                <div class="card-header text-uppercase" style="font-weight: 600;">Done</div>
+
+                <div class="card text-white bg-success mb-3 card-content">
+
+                  <div class="card-header"
+                    style="background-color: transparent; border: 0; font-weight: 600; padding:8px 16px 2px 16px">#Title
+                  </div>
+
+                  <div class="card-body" style="padding: 2px 16px 8px 16px;">
+                    <p class="card-text">#description</p>
+
+                    <div>
+                      <p class="card-text fst-italic fw-bold small" style="margin-top: -6px">John Doe</p>
+                      <p class="card-text fst-italic date-task small">2021 01 30</p>
+                    </div>
+
+                    <div>
+                      <i class="fas fa-pen-square"></i>
+                      <i class="fas fa-trash" style="margin-left: 16px;"></i>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+            <!-- done// -->
+
+          </div>
+
+        </div>
+
+      </div>
+      <!-- board-field// -->
+
+    </div>
+    <!-- main-page// -->
+
+  </div>
+  <!-- dashboard-page// -->
+
+  <!--===============================================================================================-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"></script>
+  <!--===============================================================================================-->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+    integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+    crossorigin="anonymous"></script>
+  <!--===============================================================================================-->
+  <script src="./script/main.js"></script>
+  <!--===============================================================================================-->
+</body>
+
+</html>
