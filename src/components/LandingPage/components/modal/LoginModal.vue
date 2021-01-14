@@ -89,7 +89,7 @@
 
             <div class="separator">or</div>
 
-            <button class="btn btn-primary">Sign in with Google</button>
+            <button class="btn btn-outline-dark">Continue with Google</button>
           </div>
 
           <!-- form// -->

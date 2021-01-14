@@ -6,15 +6,20 @@
     <!-- modal -->
     <register-modal
       v-if="status === 'unsigned'"
-      v-on:Register="register"
+      @Register="register"
     ></register-modal>
-    <login-modal v-if="status === 'unsigned'" v-on:Login="login"></login-modal>
+    <login-modal v-if="status === 'unsigned'" @Login="login"></login-modal>
     <!-- modal// -->
 
     <!-- landing-page// -->
 
     <!-- dashboard-page -->
-    <dashboard-page v-else-if="status === 'signed'" v-on:Logout="logout"></dashboard-page>
+    <dashboard-page
+      v-else-if="status === 'signed'"
+      :userinfo="userinfo"
+      :task="task"
+      @Logout="logout"
+    ></dashboard-page>
     <!-- dashboard-page// -->
   </div>
 </template>
@@ -35,6 +40,8 @@ export default {
       message: "Hello world",
       status: "unsigned",
       statreg: "",
+      userinfo: {},
+      task: [],
     };
   },
   components: {
@@ -44,6 +51,29 @@ export default {
     RegisterModal,
   },
   methods: {
+    getTask() {
+      axios({
+        method: "GET",
+        url: `${baseUrl}/task`,
+        headers: { access_token: localStorage.getItem("access_token") },
+      })
+        .then(({ data }) => {
+          this.task = data;
+          console.log(this.task);
+        })
+        .catch((err) => console.log(err));
+    },
+    getUser() {
+      axios({
+        method: "GET",
+        url: `${baseUrl}/getuser`,
+        headers: { access_token: localStorage.getItem("access_token") },
+      })
+        .then(({ data }) => {
+          this.userinfo = data;
+        })
+        .catch((err) => console.log(err));
+    },
     register(value) {
       // console.log(value); //　デバッグ用
 
@@ -80,6 +110,9 @@ export default {
           $("#login-modal").modal("toggle");
           this.status = "signed";
           localStorage.setItem("access_token", data.access_token);
+
+          this.getUser();
+          this.getTask();
         })
         .catch((err) => {
           console.log(err);
@@ -93,6 +126,9 @@ export default {
   created() {
     if (localStorage.getItem("access_token")) {
       this.status = "signed";
+
+      this.getUser();
+      this.getTask();
     }
   },
 };

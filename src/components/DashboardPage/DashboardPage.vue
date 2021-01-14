@@ -2,11 +2,14 @@
   <!-- dashboard-page -->
   <div id="dashboard-page">
     <!-- navbar -->
-    <dashboard-navbar v-on:Logout="logout"></dashboard-navbar>
+    <dashboard-navbar
+      v-on:Logout="logout"
+      :userinfo="userinfo"
+    ></dashboard-navbar>
     <!-- navbar// -->
 
     <!-- main-page -->
-    <dashboard-body></dashboard-body>
+    <dashboard-body :userinfo="userinfo" :task="task"></dashboard-body>
     <!-- main-page// -->
   </div>
   <!-- dashboard-page// -->
@@ -22,6 +25,7 @@ export default {
     DashboardBody,
     DashboardNavbar,
   },
+  props: ["userinfo", "task"],
   methods: {
     logout() {
       this.$emit("Logout");

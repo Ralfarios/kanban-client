@@ -2,25 +2,25 @@
   <div id="main-page">
     <!-- board-field -->
     <div id="board-field" class="board-field">
-      <h3 class="greeting-name">Hi #FIRSTNAME</h3>
-      <p class="greeting-project text-muted">#PROJECTNAME</p>
+      <h3 class="greeting-name">Hi, {{ userinfo.firstname }}!</h3>
+      <p class="greeting-project text-muted">Project: Main</p>
 
       <div class="container-fluid">
         <div class="row board">
           <!-- back-log -->
-          <backlog></backlog>
+          <backlog :task="task"></backlog>
           <!-- back-log// -->
 
           <!-- todo -->
-          <todo></todo>
+          <todo :task="task"></todo>
           <!-- todo// -->
 
           <!-- doing -->
-          <doing></doing>
+          <doing :task="task"></doing>
           <!-- doing// -->
 
           <!-- done -->
-          <done></done>
+          <done :task="task"></done>
           <!-- done// -->
         </div>
       </div>
@@ -30,13 +30,14 @@
 </template>
 
 <script>
-import Backlog from "./Card/Backlog.vue";
-import Todo from "./Card/Todo.vue";
-import Doing from "./Card/Doing.vue";
-import Done from "./Card/Done.vue";
+import Backlog from "./card/Backlog.vue";
+import Todo from "./card/Todo.vue";
+import Doing from "./card/Doing.vue";
+import Done from "./card/Done.vue";
 
 export default {
   name: "DashboardBody",
+  props: ["userinfo", "task"],
   components: {
     Backlog,
     Todo,
