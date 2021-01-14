@@ -42,7 +42,7 @@ html {
   display: none;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 993px) {
   .logo-greeting {
     margin-left: 24px;
     margin-top: 8px;
@@ -66,7 +66,7 @@ html {
   display: none;
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 770px) {
   .btn-nav {
     display: none;
   }
@@ -93,18 +93,6 @@ html {
     display: none;
   }
 }
-.btn-success {
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 0.85em;
-}
-
-.btn-primary {
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 0.85em;
-}
-
 .user-prof-pic {
   width: 36px;
   height: 36px;
@@ -180,11 +168,6 @@ html {
   margin-top: -16px;
 }
 
-.register-modal,
-.login-modal {
-  padding-left: 0;
-}
-
 .landing-body {
   margin-top: 48px;
   height: auto;
@@ -233,7 +216,6 @@ html {
   display: flex;
   align-items: center;
   text-align: center;
-  color: #0089ED;
   margin-bottom: 16px;
 }
 .separator::before {
@@ -247,6 +229,15 @@ html {
   flex: 1;
   border-bottom: 1px solid #999999;
   margin-left: 1em;
+}
+
+.switchModalAnchor {
+  text-decoration: none;
+  font-weight: bold;
+  color: #1C1F23;
+}
+.switchModalAnchor:hover {
+  color: #3a3f46;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -79,7 +79,7 @@
 
           <div class="dropdown-divider btn-drop"></div>
 
-          <a id="logout-btn" class="dropdown-item" href="">Logout</a>
+          <a v-on:click.prevent="logout" id="logout-btn" class="dropdown-item" href="">Logout</a>
         </div>
         <!-- user-info-section// -->
       </div>
@@ -91,6 +91,11 @@
 <script>
 export default {
   name: "DashboardNavbar",
+  methods: {
+    logout() {
+      this.$emit("Logout");
+    },
+  },
 };
 </script>
 

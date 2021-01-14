@@ -1,7 +1,7 @@
 <template>
   <!-- register-modal -->
   <div
-    class="modal fade register-modal"
+    class="modal fade"
     id="register-modal"
     tabindex="-1"
     aria-labelledby="register-modal-label"
@@ -36,7 +36,10 @@
             class="justify-content-center"
           >
             <!-- form-field -->
-            <form style="display: flex; flex-direction: column">
+            <form
+              @submit.prevent="Register"
+              style="display: flex; flex-direction: column"
+            >
               <div class="mb-3">
                 <div
                   style="
@@ -50,6 +53,7 @@
                       >First Name</label
                     >
                     <input
+                      v-model="firstname"
                       type="text"
                       class="form-control"
                       id="firstname-register"
@@ -60,6 +64,7 @@
                       >Last Name</label
                     >
                     <input
+                      v-model="lastname"
                       type="text"
                       class="form-control"
                       id="lastname-register"
@@ -72,7 +77,12 @@
                 <label for="email-register" class="form-label"
                   >Email address</label
                 >
-                <input type="email" class="form-control" id="email-register" />
+                <input
+                  v-model="email"
+                  type="email"
+                  class="form-control"
+                  id="email-register"
+                />
               </div>
 
               <div class="mb-3">
@@ -80,6 +90,7 @@
                   >Password</label
                 >
                 <input
+                  v-model="password"
                   type="password"
                   class="form-control"
                   id="password-register"
@@ -88,9 +99,9 @@
 
               <button
                 type="submit"
-                class="btn btn-primary align-self-stretch mt-2"
+                class="btn btn-dark align-self-stretch mt-2"
               >
-                Submit
+                Register
               </button>
             </form>
             <!-- form-field// -->
@@ -100,7 +111,15 @@
             >
               <span> Already have? </span>
 
-              <a href=""> Sign in </a>
+              <a
+                href=""
+                data-bs-dismiss="modal"
+                data-bs-toggle="modal"
+                data-bs-target="#login-modal"
+                class="switchModalAnchor"
+              >
+                Login
+              </a>
             </div>
           </div>
 
@@ -114,7 +133,29 @@
 
 <script>
 export default {
-  name: 'RegisterModal'
+  name: "RegisterModal",
+  data() {
+    return {
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    Register() {
+      this.$emit("Register", {
+        firstname: this.firstname,
+        lastname: this.lastname,
+        email: this.email,
+        password: this.password,
+      });
+      this.firstname = "";
+      this.lastname = "";
+      this.email = "";
+      this.password = "";
+    },
+  },
 };
 </script>
 

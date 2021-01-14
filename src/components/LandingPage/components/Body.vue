@@ -3,7 +3,6 @@
   <div id="landing-body" class="landing-body">
     <div class="container-fluid">
       <div class="row landing">
-
         <!-- landing-typo-section -->
         <div class="col-lg-5 col-md-6 align-self-center">
           <div class="landing-typo" style="margin-left: 9.4vw">
@@ -35,9 +34,6 @@
           />
         </div>
         <!-- landing-illust-section// -->
-
-        <register-modal></register-modal>
-        <login-modal></login-modal>
       </div>
     </div>
   </div>
@@ -45,15 +41,8 @@
 </template>
 
 <script>
-import LoginModal from './modal/LoginModal.vue';
-import RegisterModal from './modal/RegisterModal.vue';
-
 export default {
-  name: 'LandingBody',
-  components:{
-    LoginModal,
-    RegisterModal
-  }
+  name: "LandingBody",
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <!-- login-modal -->
   <div
-    class="modal fade login-modal"
+    class="modal fade"
     id="login-modal"
     tabindex="-1"
     aria-labelledby="login-modal-label"
@@ -36,17 +36,26 @@
             class="justify-content-center"
           >
             <!-- form-field -->
-            <form style="display: flex; flex-direction: column">
+            <form
+              @submit.prevent="Login"
+              style="display: flex; flex-direction: column"
+            >
               <div class="mb-3">
                 <label for="email-login" class="form-label"
                   >Email address</label
                 >
-                <input type="email" class="form-control" id="email-login" />
+                <input
+                  v-model="email"
+                  type="email"
+                  class="form-control"
+                  id="email-login"
+                />
               </div>
 
               <div class="mb-3">
                 <label for="password-login" class="form-label">Password</label>
                 <input
+                  v-model="password"
                   type="password"
                   class="form-control"
                   id="password-login"
@@ -55,9 +64,9 @@
 
               <button
                 type="submit"
-                class="btn btn-primary align-self-stretch mt-2"
+                class="btn btn-dark align-self-stretch mt-2"
               >
-                Submit
+                Login
               </button>
             </form>
             <!-- form-field// -->
@@ -67,7 +76,15 @@
             >
               <span> No account? </span>
 
-              <a href=""> Register </a>
+              <a
+                href=""
+                data-bs-dismiss="modal"
+                data-bs-toggle="modal"
+                data-bs-target="#register-modal"
+                class="switchModalAnchor"
+              >
+                Register
+              </a>
             </div>
 
             <div class="separator">or</div>
@@ -85,7 +102,23 @@
 
 <script>
 export default {
-  name: 'LoginModal'
+  name: "LoginModal",
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    Login() {
+      this.$emit("Login", {
+        email: this.email,
+        password: this.password,
+      });
+      this.email = "";
+      this.password = "";
+    },
+  },
 };
 </script>
 

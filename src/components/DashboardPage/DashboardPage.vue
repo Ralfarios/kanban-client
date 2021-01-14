@@ -2,7 +2,7 @@
   <!-- dashboard-page -->
   <div id="dashboard-page">
     <!-- navbar -->
-    <dashboard-navbar></dashboard-navbar>
+    <dashboard-navbar v-on:Logout="logout"></dashboard-navbar>
     <!-- navbar// -->
 
     <!-- main-page -->
@@ -21,6 +21,11 @@ export default {
   components: {
     DashboardBody,
     DashboardNavbar,
+  },
+  methods: {
+    logout() {
+      this.$emit("Logout");
+    },
   },
 };
 </script>
