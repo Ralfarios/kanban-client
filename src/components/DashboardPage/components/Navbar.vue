@@ -39,6 +39,8 @@
           id="project-btn-nav"
           class="btn btn-primary btn-sm btn-nav"
           style="margin-right: 36px; border-radius: 4px"
+          data-bs-toggle="modal"
+          data-bs-target="#create-task-modal"
         >
           Create task
         </button>
@@ -68,7 +70,12 @@
 
           <div class="dropdown-divider"></div>
 
-          <a id="create-task-drop" class="dropdown-item btn-drop" href=""
+          <a
+            id="create-task-drop"
+            class="dropdown-item btn-drop"
+            href=""
+            data-bs-toggle="modal"
+            data-bs-target="#create-task-modal"
             >Create task</a
           >
           <!-- <a id="project-drop" class="dropdown-item btn-drop" href=""

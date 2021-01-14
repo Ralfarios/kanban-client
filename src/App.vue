@@ -20,6 +20,10 @@
       :task="task"
       @Logout="logout"
     ></dashboard-page>
+
+    <!-- modal -->
+    <create-task-modal @CreateTask="createTask"></create-task-modal>
+    <!-- modal// -->
     <!-- dashboard-page// -->
   </div>
 </template>
@@ -30,6 +34,7 @@ import DashboardPage from "./components/DashboardPage/DashboardPage.vue";
 import LandingPage from "./components/LandingPage/LandingPage.vue";
 import LoginModal from "./components/LandingPage/components/modal/LoginModal.vue";
 import RegisterModal from "./components/LandingPage/components/modal/RegisterModal.vue";
+import CreateTaskModal from "./components/DashboardPage/components/modal/CreateTaskModal.vue";
 
 const baseUrl = "http://localhost:3000";
 
@@ -49,6 +54,7 @@ export default {
     LandingPage,
     LoginModal,
     RegisterModal,
+    CreateTaskModal,
   },
   methods: {
     getTask() {
@@ -60,6 +66,26 @@ export default {
         .then(({ data }) => {
           this.task = data;
           console.log(this.task);
+        })
+        .catch((err) => console.log(err));
+    },
+    createTask(value) {
+      console.log(value, localStorage.getItem("access_token")); //　デバッグ用
+      axios({
+        method: "POST",
+        url: `${baseUrl}/task`,
+        headers: { access_token: localStorage.getItem("access_token") },
+        data: {
+          title: value.title,
+          description: value.description,
+          duedate: value.duedate,
+          category: value.category,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          $("#create-task-modal").modal("toggle");
+          this.getTask();
         })
         .catch((err) => console.log(err));
     },
