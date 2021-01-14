@@ -1,0 +1,6 @@
+## Cache from VueJS
+.cache/
+dist/
+
+## Package
+node_modules/
