@@ -8,19 +8,19 @@
       <div class="container-fluid">
         <div class="row board">
           <!-- back-log -->
-          <backlog :task="task"></backlog>
+          <backlog :deleteTask="deleteTask" :task="task"></backlog>
           <!-- back-log// -->
 
           <!-- todo -->
-          <todo :task="task"></todo>
+          <todo :deleteTask="deleteTask" :task="task"></todo>
           <!-- todo// -->
 
           <!-- doing -->
-          <doing :task="task"></doing>
+          <doing :deleteTask="deleteTask" :task="task"></doing>
           <!-- doing// -->
 
           <!-- done -->
-          <done :task="task"></done>
+          <done :deleteTask="deleteTask" :task="task"></done>
           <!-- done// -->
         </div>
       </div>
@@ -37,7 +37,7 @@ import Done from "./card/Done.vue";
 
 export default {
   name: "DashboardBody",
-  props: ["userinfo", "task"],
+  props: ["userinfo", "task", "deleteTask"],
   components: {
     Backlog,
     Todo,

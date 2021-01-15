@@ -7,7 +7,7 @@
 
       <div v-for="e in task" :key="e.id" :task="task">
         <div v-if="e.category === 'backlog'">
-          <div class="card text-white bg-dark mb-3 card-content" >
+          <div class="card text-white bg-dark mb-3 card-content">
             <div
               class="card-header"
               style="
@@ -36,7 +36,11 @@
 
               <div id="task-btn-action">
                 <i class="fas fa-pen-square"></i>
-                <i class="fas fa-trash" style="margin-left: 16px"></i>
+                <i
+                  class="fas fa-trash"
+                  style="margin-left: 16px"
+                  @click="deleteTask(e.id)"
+                ></i>
               </div>
             </div>
           </div>
@@ -49,7 +53,7 @@
 <script>
 export default {
   name: "CardBacklog",
-  props: ["task"],
+  props: ["task", "deleteTask"],
 };
 </script>
 

@@ -18,6 +18,7 @@
       v-else-if="status === 'signed'"
       :userinfo="userinfo"
       :task="task"
+      :deleteTask="deleteTask"
       @Logout="logout"
     ></dashboard-page>
 
@@ -65,12 +66,10 @@ export default {
       })
         .then(({ data }) => {
           this.task = data;
-          console.log(this.task);
         })
         .catch((err) => console.log(err));
     },
     createTask(value) {
-      console.log(value, localStorage.getItem("access_token")); //　デバッグ用
       axios({
         method: "POST",
         url: `${baseUrl}/task`,
@@ -82,12 +81,29 @@ export default {
           category: value.category,
         },
       })
-        .then((response) => {
-          console.log(response);
+        .then(({data}) => {
+          console.log(data);
           $("#create-task-modal").modal("toggle");
           this.getTask();
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    deleteTask(id) {
+      // console.log(id)
+      axios({
+        method: "DELETE",
+        url: `${baseUrl}/task/${id}`,
+        headers: { access_token: localStorage.getItem("access_token") },
+      })
+        .then(({ data }) => {
+          console.log(data.message);
+          this.getTask();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     getUser() {
       axios({
