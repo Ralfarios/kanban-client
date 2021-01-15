@@ -90,9 +90,9 @@
             <div class="separator">or</div>
 
             <button v-google-signin-button class="btn btn-outline-dark">
-              Continue with Google
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" style="margin-right: 24px; margin-bottom: 2px;" width="16" alt="">
+              Sign in with Google
             </button>
-            <!-- <button class="btn btn-outline-dark">Continue with Google</button> -->
           </div>
 
           <!-- form// -->
