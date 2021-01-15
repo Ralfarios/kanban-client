@@ -128,7 +128,7 @@ export default {
   data() {
     return {
       clientId:
-        "988612189787-besbh0i7pdgj3b0g4lehsmu0on4fd3le.apps.googleusercontent.com",
+        "988612189787-gmff7uruop611204m9f4n5jsk7kb3roa.apps.googleusercontent.com",
       email: "",
       password: "",
     };
