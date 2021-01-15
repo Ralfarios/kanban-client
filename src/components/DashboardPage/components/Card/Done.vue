@@ -36,7 +36,10 @@
               </div>
 
               <div id="task-btn-action" class="task-btn-action">
-                <i class="fas fa-pen-square btn-action-hov" @click="editTask(e.id)"></i>
+                <i
+                  class="fas fa-pen-square btn-action-hov"
+                  @click="editTask(e.id)"
+                ></i>
                 <i
                   class="fas fa-arrows-alt btn-action-hov"
                   style="margin-left: 16px"
