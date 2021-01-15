@@ -58,7 +58,7 @@ import EditTaskModal from "./components/DashboardPage/components/modal/EditTaskM
 import PatchTaskModal from "./components/DashboardPage/components/modal/PatchTaskModal.vue";
 import Swal from "sweetalert2";
 
-const baseUrl = "http://localhost:3000";
+const baseUrl = "https://kanboard-server.herokuapp.com";
 
 export default {
   name: "App",

@@ -123,6 +123,11 @@
             </div>
           </div>
 
+          <p class="text-center text-muted" style="font-size: 8px; ">
+            Click “Register” to agree to Kanboard's by Ralfarios <a href="https://github.com/Ralfarios/kanban-client">Term and Service</a> and
+            acknowledge that Kanboard's Privacy Policy applies to you.
+          </p>
+
           <!-- form// -->
         </div>
       </div>

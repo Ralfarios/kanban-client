@@ -90,10 +90,23 @@
             <div class="separator">or</div>
 
             <button v-google-signin-button class="btn btn-outline-dark">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" style="margin-right: 24px; margin-bottom: 2px;" width="16" alt="">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                style="margin-right: 24px; margin-bottom: 2px"
+                width="16"
+                alt=""
+              />
               Sign in with Google
             </button>
           </div>
+
+          <p class="text-center text-muted" style="font-size: 8px">
+            Click "Login" to agree to Kanboard's by Ralfarios
+            <a href="https://github.com/Ralfarios/kanban-client"
+              >Term and Service</a
+            >
+            and acknowledge that Kanboard's Privacy Policy applies to you.
+          </p>
 
           <!-- form// -->
         </div>
@@ -107,7 +120,7 @@
 import axios from "axios";
 import GoogleSignInButton from "vue-google-signin-button-directive";
 
-const baseUrl = "http://localhost:3000";
+const baseUrl = "https://kanboard-server.herokuapp.com";
 
 export default {
   directives: { GoogleSignInButton },
