@@ -11,6 +11,7 @@
       :patchTask="patchTask"
       :deleteTask="deleteTask"
       :userinfo="userinfo"
+      :categories="categories"
       :task="task"
     ></dashboard-body>
     <!-- main-page// -->
@@ -28,7 +29,14 @@ export default {
     DashboardBody,
     DashboardNavbar,
   },
-  props: ["userinfo", "task", "editTask", "patchTask", "deleteTask"],
+  props: [
+    "userinfo",
+    "task",
+    "editTask",
+    "patchTask",
+    "deleteTask",
+    "categories",
+  ],
   methods: {
     logout() {
       this.$emit("Logout");

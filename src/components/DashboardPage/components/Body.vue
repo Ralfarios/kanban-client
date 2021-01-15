@@ -8,40 +8,17 @@
       <div class="container-fluid">
         <div class="row board">
           <!-- back-log -->
-          <backlog
-            :editTask="editTask"
-            :patchTask="patchTask"
-            :deleteTask="deleteTask"
-            :task="task"
-          ></backlog>
-          <!-- back-log// -->
 
-          <!-- todo -->
-          <todo
-            :editTask="editTask"
-            :patchTask="patchTask"
-            :deleteTask="deleteTask"
-            :task="task"
-          ></todo>
-          <!-- todo// -->
 
-          <!-- doing -->
-          <doing
+          <category-card
+            v-for="(category, i) in categories"
+            :key="i"
+            :category="category"
             :editTask="editTask"
             :patchTask="patchTask"
             :deleteTask="deleteTask"
             :task="task"
-          ></doing>
-          <!-- doing// -->
-
-          <!-- done -->
-          <done
-            :editTask="editTask"
-            :patchTask="patchTask"
-            :deleteTask="deleteTask"
-            :task="task"
-          ></done>
-          <!-- done// -->
+          ></category-card>
         </div>
       </div>
     </div>
@@ -50,19 +27,28 @@
 </template>
 
 <script>
-import Backlog from "./card/Backlog.vue";
-import Todo from "./card/Todo.vue";
-import Doing from "./card/Doing.vue";
-import Done from "./card/Done.vue";
+// import Backlog from "./card/Backlog.vue";
+// import Todo from "./card/Todo.vue";
+// import Doing from "./card/Doing.vue";
+// import Done from "./card/Done.vue";
+import CategoryCard from "./card/CategoryCard.vue";
 
 export default {
   name: "DashboardBody",
-  props: ["userinfo", "task", "editTask", "patchTask", "deleteTask"],
+  props: [
+    "userinfo",
+    "task",
+    "editTask",
+    "patchTask",
+    "deleteTask",
+    "categories",
+  ],
   components: {
-    Backlog,
-    Todo,
-    Doing,
-    Done,
+    // Backlog,
+    // Todo,
+    // Doing,
+    // Done,
+    CategoryCard,
   },
 };
 </script>

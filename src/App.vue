@@ -8,7 +8,11 @@
       v-if="status === 'unsigned'"
       @Register="register"
     ></register-modal>
-    <login-modal v-if="status === 'unsigned'" @Login="login" @GoogleLogin="GoogleLogin"></login-modal>
+    <login-modal
+      v-if="status === 'unsigned'"
+      @Login="login"
+      @GoogleLogin="GoogleLogin"
+    ></login-modal>
     <!-- modal// -->
 
     <!-- landing-page// -->
@@ -21,6 +25,7 @@
       :editTask="editTask"
       :patchTask="patchTask"
       :deleteTask="deleteTask"
+      :categories="categories"
       @Logout="logout"
     ></dashboard-page>
 
@@ -64,6 +69,7 @@ export default {
       statreg: "",
       userinfo: {},
       task: [],
+      categories: ["backlog", "todo", "doing", "done"],
       populateData: {
         id: "",
         title: "",
@@ -156,7 +162,12 @@ export default {
           this.populateData.category = data.category;
         })
         .catch((err) => {
-          console.log(err);
+          const errMsg = err.response.data.message;
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: errMsg,
+          });
         });
     },
     editTaskSubmit(value) {
@@ -209,7 +220,12 @@ export default {
           this.populateData.category = data.category;
         })
         .catch((err) => {
-          console.log(err);
+          const errMsg = err.response.data.message;
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: errMsg,
+          });
         });
     },
     patchTaskSubmit(value) {
