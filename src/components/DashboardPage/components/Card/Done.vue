@@ -35,10 +35,15 @@
                 </p>
               </div>
 
-              <div>
-                <i class="fas fa-pen-square" @click="editTask(e.id)"></i>
+              <div id="task-btn-action" class="task-btn-action">
+                <i class="fas fa-pen-square btn-action-hov" @click="editTask(e.id)"></i>
                 <i
-                  class="fas fa-trash"
+                  class="fas fa-arrows-alt btn-action-hov"
+                  style="margin-left: 16px"
+                  @click="patchTask(e.id)"
+                ></i>
+                <i
+                  class="fas fa-trash btn-action-hov"
                   style="margin-left: 16px"
                   @click="deleteTask(e.id)"
                 ></i>
@@ -54,7 +59,7 @@
 <script>
 export default {
   name: "CardDone",
-  props: ["task", "editTask", "deleteTask"],
+  props: ["task", "editTask", "patchTask", "deleteTask"],
 };
 </script>
 

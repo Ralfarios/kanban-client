@@ -8,6 +8,7 @@
     <!-- main-page -->
     <dashboard-body
       :editTask="editTask"
+      :patchTask="patchTask"
       :deleteTask="deleteTask"
       :userinfo="userinfo"
       :task="task"
@@ -27,7 +28,7 @@ export default {
     DashboardBody,
     DashboardNavbar,
   },
-  props: ["userinfo", "task", "editTask", "deleteTask"],
+  props: ["userinfo", "task", "editTask", "patchTask", "deleteTask"],
   methods: {
     logout() {
       this.$emit("Logout");

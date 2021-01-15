@@ -240,4 +240,16 @@ html {
   color: #3a3f46;
 }
 
+.task-btn-action {
+  margin-top: 4px;
+}
+
+.btn-action-hov {
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+.btn-action-hov:hover {
+  color: #9c9c9c;
+}
+
 /*# sourceMappingURL=main.css.map */

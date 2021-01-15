@@ -10,6 +10,7 @@
           <!-- back-log -->
           <backlog
             :editTask="editTask"
+            :patchTask="patchTask"
             :deleteTask="deleteTask"
             :task="task"
           ></backlog>
@@ -18,6 +19,7 @@
           <!-- todo -->
           <todo
             :editTask="editTask"
+            :patchTask="patchTask"
             :deleteTask="deleteTask"
             :task="task"
           ></todo>
@@ -26,6 +28,7 @@
           <!-- doing -->
           <doing
             :editTask="editTask"
+            :patchTask="patchTask"
             :deleteTask="deleteTask"
             :task="task"
           ></doing>
@@ -34,6 +37,7 @@
           <!-- done -->
           <done
             :editTask="editTask"
+            :patchTask="patchTask"
             :deleteTask="deleteTask"
             :task="task"
           ></done>
@@ -53,7 +57,7 @@ import Done from "./card/Done.vue";
 
 export default {
   name: "DashboardBody",
-  props: ["userinfo", "task", "editTask", "deleteTask"],
+  props: ["userinfo", "task", "editTask", "patchTask", "deleteTask"],
   components: {
     Backlog,
     Todo,

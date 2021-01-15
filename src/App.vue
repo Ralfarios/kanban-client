@@ -19,6 +19,7 @@
       :userinfo="userinfo"
       :task="task"
       :editTask="editTask"
+      :patchTask="patchTask"
       :deleteTask="deleteTask"
       @Logout="logout"
     ></dashboard-page>
@@ -31,6 +32,11 @@
       @EditTaskSubmit="editTaskSubmit"
       :populateData="populateData"
     ></edit-task-modal>
+    <patch-task-modal
+      :patchTask="patchTask"
+      @PatchTaskSubmit="patchTaskSubmit"
+      :populateData="populateData"
+    ></patch-task-modal>
     <!-- modal// -->
     <!-- dashboard-page// -->
   </div>
@@ -44,6 +50,7 @@ import LoginModal from "./components/LandingPage/components/modal/LoginModal.vue
 import RegisterModal from "./components/LandingPage/components/modal/RegisterModal.vue";
 import CreateTaskModal from "./components/DashboardPage/components/modal/CreateTaskModal.vue";
 import EditTaskModal from "./components/DashboardPage/components/modal/EditTaskModal.vue";
+import PatchTaskModal from "./components/DashboardPage/components/modal/PatchTaskModal.vue";
 
 const baseUrl = "http://localhost:3000";
 
@@ -72,6 +79,7 @@ export default {
     RegisterModal,
     CreateTaskModal,
     EditTaskModal,
+    PatchTaskModal,
   },
   methods: {
     getTask() {
@@ -120,7 +128,9 @@ export default {
           this.populateData.duedate = data.duedate.split("T")[0];
           this.populateData.category = data.category;
         })
-        .catch((err) => {});
+        .catch((err) => {
+          console.log(err);
+        });
     },
     editTaskSubmit(value) {
       // console.log(value);
@@ -141,6 +151,42 @@ export default {
           this.getTask();
         })
         .catch((err) => console.log(err));
+    },
+    patchTask(id) {
+      axios({
+        method: "GET",
+        url: `${baseUrl}/task/${id}`,
+        headers: { access_token: localStorage.getItem("access_token") },
+      })
+        .then(({ data }) => {
+          // console.log(data); // デバッグ用
+          $("#patch-task-modal").modal("toggle");
+          this.populateData.id = data.id;
+          this.populateData.category = data.category;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    patchTaskSubmit(value) {
+      // console.log(value); // デバッグ用
+      axios({
+        method: "PATCH",
+        url: `${baseUrl}/task/${value.id}`,
+        headers: { access_token: localStorage.getItem("access_token") },
+        data: {
+          title: value.title,
+          category: value.category,
+        },
+      })
+        .then(({ data }) => {
+          // console.log(data);
+          $("#patch-task-modal").modal("toggle");
+          this.getTask();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     deleteTask(id) {
       // console.log(id)
