@@ -89,7 +89,10 @@
 
             <div class="separator">or</div>
 
-            <button class="btn btn-outline-dark">Continue with Google</button>
+            <button v-google-signin-button class="btn btn-outline-dark">
+              Continue with Google
+            </button>
+            <!-- <button class="btn btn-outline-dark">Continue with Google</button> -->
           </div>
 
           <!-- form// -->
@@ -101,10 +104,18 @@
 </template>
 
 <script>
+import axios from "axios";
+import GoogleSignInButton from "vue-google-signin-button-directive";
+
+const baseUrl = "http://localhost:3000";
+
 export default {
+  directives: { GoogleSignInButton },
   name: "LoginModal",
   data() {
     return {
+      clientId:
+        "988612189787-besbh0i7pdgj3b0g4lehsmu0on4fd3le.apps.googleusercontent.com",
       email: "",
       password: "",
     };
@@ -117,6 +128,24 @@ export default {
       });
       this.email = "";
       this.password = "";
+    },
+    OnGoogleAuthSuccess(id_token) {
+      // console.log(id_token);
+      // Receive the idToken and make your magic with the backend
+      axios({
+        method: "POST",
+        url: `${baseUrl}/glogin`,
+        headers: { id_token },
+      })
+        .then((result) => {
+          this.$emit("GoogleLogin", result.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    OnGoogleAuthFail(error) {
+      console.log(error);
     },
   },
 };

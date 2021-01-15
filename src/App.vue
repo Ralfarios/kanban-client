@@ -8,7 +8,7 @@
       v-if="status === 'unsigned'"
       @Register="register"
     ></register-modal>
-    <login-modal v-if="status === 'unsigned'" @Login="login"></login-modal>
+    <login-modal v-if="status === 'unsigned'" @Login="login" @GoogleLogin="GoogleLogin"></login-modal>
     <!-- modal// -->
 
     <!-- landing-page// -->
@@ -368,6 +368,14 @@ export default {
           },
         },
       ]);
+    },
+    GoogleLogin(value) {
+      $("#login-modal").modal("toggle");
+      this.status = "signed";
+      localStorage.setItem("access_token", value.access_token);
+
+      this.getUser();
+      this.getTask();
     },
     logout() {
       Swal.fire({
