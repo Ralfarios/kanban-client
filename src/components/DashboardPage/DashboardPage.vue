@@ -6,7 +6,12 @@
     <!-- navbar// -->
 
     <!-- main-page -->
-    <dashboard-body :deleteTask="deleteTask" :userinfo="userinfo" :task="task"></dashboard-body>
+    <dashboard-body
+      :editTask="editTask"
+      :deleteTask="deleteTask"
+      :userinfo="userinfo"
+      :task="task"
+    ></dashboard-body>
     <!-- main-page// -->
   </div>
   <!-- dashboard-page// -->
@@ -22,7 +27,7 @@ export default {
     DashboardBody,
     DashboardNavbar,
   },
-  props: ["userinfo", "task", 'deleteTask'],
+  props: ["userinfo", "task", "editTask", "deleteTask"],
   methods: {
     logout() {
       this.$emit("Logout");

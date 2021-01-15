@@ -18,12 +18,19 @@
       v-else-if="status === 'signed'"
       :userinfo="userinfo"
       :task="task"
+      :editTask="editTask"
       :deleteTask="deleteTask"
       @Logout="logout"
     ></dashboard-page>
 
     <!-- modal -->
     <create-task-modal @CreateTask="createTask"></create-task-modal>
+    <!-- <edit-task-modal @editTask="edit"></edit-task-modal> -->
+    <edit-task-modal
+      :editTask="editTask"
+      @EditTaskSubmit="editTaskSubmit"
+      :populateData="populateData"
+    ></edit-task-modal>
     <!-- modal// -->
     <!-- dashboard-page// -->
   </div>
@@ -36,6 +43,7 @@ import LandingPage from "./components/LandingPage/LandingPage.vue";
 import LoginModal from "./components/LandingPage/components/modal/LoginModal.vue";
 import RegisterModal from "./components/LandingPage/components/modal/RegisterModal.vue";
 import CreateTaskModal from "./components/DashboardPage/components/modal/CreateTaskModal.vue";
+import EditTaskModal from "./components/DashboardPage/components/modal/EditTaskModal.vue";
 
 const baseUrl = "http://localhost:3000";
 
@@ -48,6 +56,13 @@ export default {
       statreg: "",
       userinfo: {},
       task: [],
+      populateData: {
+        id: "",
+        title: "",
+        description: "",
+        duedate: "",
+        category: "",
+      },
     };
   },
   components: {
@@ -56,6 +71,7 @@ export default {
     LoginModal,
     RegisterModal,
     CreateTaskModal,
+    EditTaskModal,
   },
   methods: {
     getTask() {
@@ -81,7 +97,7 @@ export default {
           category: value.category,
         },
       })
-        .then(({data}) => {
+        .then(({ data }) => {
           console.log(data);
           $("#create-task-modal").modal("toggle");
           this.getTask();
@@ -89,6 +105,42 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    editTask(id) {
+      axios({
+        method: "GET",
+        url: `${baseUrl}/task/${id}`,
+        headers: { access_token: localStorage.getItem("access_token") },
+      })
+        .then(({ data }) => {
+          $("#edit-task-modal").modal("toggle");
+          this.populateData.id = data.id;
+          this.populateData.title = data.title;
+          this.populateData.description = data.description;
+          this.populateData.duedate = data.duedate.split("T")[0];
+          this.populateData.category = data.category;
+        })
+        .catch((err) => {});
+    },
+    editTaskSubmit(value) {
+      // console.log(value);
+      axios({
+        method: "PUT",
+        url: `${baseUrl}/task/${value.id}`,
+        headers: { access_token: localStorage.getItem("access_token") },
+        data: {
+          title: value.title,
+          description: value.description,
+          duedate: value.duedate,
+          category: value.category,
+        },
+      })
+        .then(({ data }) => {
+          // console.log(data);
+          $("#edit-task-modal").modal("toggle");
+          this.getTask();
+        })
+        .catch((err) => console.log(err));
     },
     deleteTask(id) {
       // console.log(id)

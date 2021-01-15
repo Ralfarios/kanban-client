@@ -35,7 +35,7 @@
               </div>
 
               <div id="task-btn-action">
-                <i class="fas fa-pen-square"></i>
+                <i class="fas fa-pen-square" @click="editTask(e.id)"></i>
                 <i
                   class="fas fa-trash"
                   style="margin-left: 16px"
@@ -53,7 +53,7 @@
 <script>
 export default {
   name: "CardBacklog",
-  props: ["task", "deleteTask"],
+  props: ["task", "editTask", "deleteTask"],
 };
 </script>
 
