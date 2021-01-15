@@ -53,6 +53,7 @@
                       type="text"
                       class="form-control"
                       id="title-add"
+                      required
                     />
                   </div>
 
@@ -65,8 +66,9 @@
                       id="category-add"
                       class="form-select"
                       aria-label="category-add"
+                      required
                     >
-                      <option selected>-- select --</option>
+                      <option value="">-- select --</option>
                       <option value="backlog">Backlog</option>
                       <option value="todo">Todo</option>
                       <option value="doing">Doing</option>
@@ -83,6 +85,7 @@
                   type="date"
                   class="form-control"
                   id="duedate-add"
+                  required
                 />
               </div>
 

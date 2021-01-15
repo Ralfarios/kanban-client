@@ -24,6 +24,7 @@
   "homepage": "https://github.com/Ralfarios/kanban-client#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "sweetalert2": "^10.13.0",
     "vue": "^2.6.12",
     "vue-hot-reload-api": "^2.3.4"
   },

@@ -66,7 +66,7 @@
                       class="form-select"
                       aria-label="category-edit"
                     >
-                      <option selected>-- select --</option>
+                      <option value="">-- select --</option>
                       <option value="backlog">Backlog</option>
                       <option value="todo">Todo</option>
                       <option value="doing">Doing</option>
